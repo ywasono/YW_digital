@@ -56,8 +56,7 @@ export default function WebDesign() {
               viewport={{ once: true }}
             >
               <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-6">
-                Affordable Web Design <br />
-                <span className="text-primary">from $199</span>
+                Affordable Web Design
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {features.map((feature, i) => (
