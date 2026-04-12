@@ -35,6 +35,12 @@ const portfolioItems = [
     image: "https://i.imgur.com/JogTyZp.png",
     tags: ["E-commerce", "Portfolio", "Professional"],
   },
+  {
+    title: "DItobi Adelaide",
+    url: "https://ywasono.github.io/DitobiAdelaide/",
+    image: "https://i.imgur.com/Iz2fn2x.png",
+    tags: ["Business", "Professional", "Responsive"],
+  },
 ];
 
 const features = [
