@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Linkedin, Mail, Phone, Github } from "lucide-react";
+import { Linkedin, Mail, Phone } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,8 +10,13 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div>
             <div className="text-2xl font-bold tracking-tighter mb-2 flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-sm">
-                YW
+              <div className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center">
+                <img 
+                  src="https://i.imgur.com/RIUKrqz.png" 
+                  alt="YW Logo" 
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
               </div>
               <span>Digital</span>
             </div>
@@ -29,9 +34,6 @@ export default function Footer() {
             </a>
             <a href="tel:0402065465" className="text-muted-foreground hover:text-primary transition-colors">
               <Phone size={20} />
-            </a>
-            <a href="https://github.com/ywasono" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-              <Github size={20} />
             </a>
           </div>
         </div>

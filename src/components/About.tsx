@@ -1,23 +1,12 @@
-import { motion, AnimatePresence } from "motion/react";
-import { Linkedin, Mail, Phone, ExternalLink } from "lucide-react";
+import { motion } from "motion/react";
+import { Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react";
 
 const aboutImages = [
-  "https://i.imgur.com/T0Ezfml.png",
-  "https://i.imgur.com/DJGjzel.png"
+  "https://i.imgur.com/T0Ezfml.png"
 ];
 
 export default function About() {
-  const [currentImage, setCurrentImage] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % aboutImages.length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <section id="about" className="py-24 bg-secondary/20 relative overflow-hidden">
       {/* Colorful Background Accents */}
@@ -38,32 +27,16 @@ export default function About() {
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/40 via-purple-500/30 to-blue-500/40 blur-[100px] -z-10 opacity-60" />
             
             <div className="aspect-video rounded-[2rem] overflow-hidden glass p-4 relative shadow-2xl border border-white/10">
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={aboutImages[currentImage]}
-                  src={aboutImages[currentImage]}
-                  alt="Yohanes Wasono Portfolio"
-                  initial={{ opacity: 0, scale: 1.05 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 1, ease: "anticipate" }}
-                  className="w-full h-full object-cover rounded-2xl"
-                  referrerPolicy="no-referrer"
-                />
-              </AnimatePresence>
-              
-              {/* Carousel Indicators */}
-              <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-20">
-                {aboutImages.map((_, i) => (
-                  <button 
-                    key={i}
-                    onClick={() => setCurrentImage(i)}
-                    className={`h-2 rounded-full transition-all duration-500 ${
-                      i === currentImage ? "bg-primary w-12" : "bg-white/20 w-2 hover:bg-white/40"
-                    }`}
-                  />
-                ))}
-              </div>
+              <motion.img
+                src={aboutImages[0]}
+                alt="Yohanes Wasono Portfolio"
+                initial={{ opacity: 0, scale: 1.05 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, ease: "anticipate" }}
+                className="w-full h-full object-cover rounded-2xl"
+                referrerPolicy="no-referrer"
+              />
             </div>
             
             <div className="absolute -bottom-8 -right-4 glass p-8 rounded-3xl shadow-2xl hidden md:block border border-white/20 z-30">
@@ -87,6 +60,91 @@ export default function About() {
               <p className="text-xl text-muted-foreground leading-relaxed">
                 I bridge the gap between technical complexity and creative design. My goal is to provide affordable, high-quality digital solutions that actually work for small businesses and professionals.
               </p>
+            </div>
+
+            {/* Skills & Tools Grid */}
+            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+              <div className="glass p-6 rounded-2xl border-white/5">
+                <h3 className="text-primary font-bold uppercase tracking-widest text-sm mb-4">Software</h3>
+                <div className="flex flex-wrap gap-2">
+                  {["Power BI", "Looker Data Studio", "SAP", "Canva", "Microsoft Office", "Advanced Excel & Macros"].map((item) => (
+                    <span key={item} className="px-3 py-1 bg-white/5 rounded-full text-sm text-muted-foreground border border-white/10">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              
+              <div className="glass p-6 rounded-2xl border-white/5">
+                <h3 className="text-primary font-bold uppercase tracking-widest text-sm mb-4">Language</h3>
+                <div className="flex flex-wrap gap-2">
+                  {["SQL", "Python", "R", "HTML"].map((item) => (
+                    <span key={item} className="px-3 py-1 bg-white/5 rounded-full text-sm text-muted-foreground border border-white/10">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="glass p-6 rounded-2xl border-white/5">
+                <h3 className="text-primary font-bold uppercase tracking-widest text-sm mb-4">Skills</h3>
+                <div className="flex flex-wrap gap-2">
+                  {["Reporting", "Presentation", "Storytelling", "Data analysis", "Visualisation"].map((item) => (
+                    <span key={item} className="px-3 py-1 bg-white/5 rounded-full text-sm text-muted-foreground border border-white/10">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Certifications Section */}
+            <div className="mt-16 text-left">
+              <h3 className="text-primary font-bold uppercase tracking-[0.3em] text-sm mb-8 text-center">Certifications</h3>
+              
+              {/* Canva Embed */}
+              <div className="mb-12 max-w-5xl mx-auto">
+                <div className="relative w-full h-0 pt-[56.25%] shadow-2xl rounded-2xl overflow-hidden border border-white/10 glass">
+                  <iframe 
+                    loading="lazy" 
+                    className="absolute w-full h-full top-0 left-0 border-none p-0 m-0"
+                    src="https://www.canva.com/design/DAG8aOH1ua4/9mKV9A9B94mwp6ZJR9v36A/view?embed" 
+                    allowFullScreen
+                    allow="fullscreen"
+                    title="Certificates Presentation"
+                  >
+                  </iframe>
+                </div>
+                <div className="mt-4 text-center">
+                  <a 
+                    href="https://www.canva.com/design/DAG8aOH1ua4/9mKV9A9B94mwp6ZJR9v36A/view?utm_content=DAG8aOH1ua4&utm_campaign=designshare&utm_medium=embeds&utm_source=link" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-xs text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest font-medium"
+                  >
+                    View Full Certificates Presentation
+                  </a>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                  { provider: "Microsoft", certs: "Introduction to Data Science (2019), Data Analyst Associate (2021, renewed 2026)" },
+                  { provider: "Udemy", certs: "Python for Data Science and Machine Learning (2024)" },
+                  { provider: "DataCamp", certs: "Intermediate Python (2023)" },
+                  { provider: "Google", certs: "Data Analytics Professional (2021), IT Support Professional (2022)" },
+                  { provider: "Harvard University", certs: "Data Science: R & Visualization (2019), Computer Science for Business Professionals (2021)" },
+                  { provider: "Johns Hopkins University", certs: "Executive Data Science (2021)" },
+                  { provider: "UC Davis", certs: "SQL for Data Science (2020)" },
+                  { provider: "University of Pennsylvania", certs: "Customer, Operations, People, Accounting Analytics (2020)" },
+                  { provider: "PwC", certs: "Data-driven Decision Making (2020), Data Visualization with Advanced Excel (2020)" }
+                ].map((item, idx) => (
+                  <div key={idx} className="glass p-5 rounded-2xl border-white/5 hover:bg-white/10 transition-colors">
+                    <div className="text-primary font-bold text-xs uppercase tracking-widest mb-2">{item.provider}</div>
+                    <div className="text-sm text-muted-foreground leading-relaxed">{item.certs}</div>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className="mt-12 flex flex-wrap justify-center gap-6">

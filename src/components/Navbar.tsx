@@ -35,8 +35,13 @@ export default function Navbar() {
           animate={{ opacity: 1, x: 0 }}
           className="text-2xl font-bold tracking-tighter flex items-center gap-2 group"
         >
-          <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground transition-transform group-hover:rotate-12">
-            YW
+          <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center transition-transform group-hover:scale-110">
+            <img 
+              src="https://i.imgur.com/RIUKrqz.png" 
+              alt="YW Logo" 
+              className="w-full h-full object-cover"
+              referrerPolicy="no-referrer"
+            />
           </div>
           <span className="text-foreground">Digital</span>
         </motion.a>
